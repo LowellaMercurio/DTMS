@@ -8,6 +8,9 @@ class DtmsController extends AppController
 
         $login = dtms::login($username, $password);
 
+        if($login){
+            $this->task();
+        }
         $this->set(get_defined_vars());
     }
 
