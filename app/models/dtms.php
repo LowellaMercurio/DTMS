@@ -3,16 +3,10 @@ class dtms extends AppModel
 {
     public static function login($username, $password)
     {
-       $db = DB::conn();
+        $db = DB::conn();
 
-       $userExists = $db->row('SELECT * FROM tbl_user WHERE username = ? AND password = ?', array($username, $password));
+        $userExists = $db->row('SELECT * FROM tbl_user WHERE username = ? AND password = ?', array($username, $password));
 
-       if($userExists){
-           return true;
-       }
-       else{
-           return false;
-       }
-
+        return $userExists? true : false;
     }
 }
